@@ -1,123 +1,104 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
- <link href="../static/bootstrap.min.css" rel="stylesheet"
-       th:href="@{/bootstrap.min.css}">
+    <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet"
+          th:href="@{/css/bootstrap.min.css}">
 </head>
-<body style="background: #5a6268" class="container bg-dark">
-
-<div>
- <nav class="container navbar navbar-expand-md m-auto fixed-top bg-dark">
-  <div>
-     <ul class="navbar-nav m-auto">
-        <li><a class="nav-link active text-white bg-dark m-1" href="http://localhost:8080">Home</a></li>
-        <li><a class="nav-link active text-white bg-dark m-1" href="http://localhost:8080/about">About Me</a></li>
-        <li><a class="nav-link active text-white bg-dark m-1" href="http://localhost:8080/projects">My Projects</a></li>
-        <li><a class="nav-link active text-white bg-dark m-1" href="/contact">Contact</a></li>
-     </ul>
-  </div>
- </nav>
-</div>
-
-<br>
-<br>
-<br>
-
- <div class="container">
-  <div class="row">
-   <h1 class="text-white container">Zinsrechner</h1>
-  </div>
-  <div class="row">
-   <div class="col-sm">
-    <div class="card">
-     <div class="card-body">
-
-
-      <form method="post" action="/zinsservice" th:object="${zins}">
-       <div class="form-group">
-        <label>Anfangskapital</label>
-        <input type="text" autocomplete="off" class="form-control" name="anfangskapital"
-         placeholder="5000" required>
-        <small class="text-danger" th:errors="*{anfangskapital}">Muss positiv sein!</small>
-       </div>
-       <div class="form-group">
-        <label>Laufzeit</label>
-        <input type="text" autocomplete="off"
-         class="form-control" placeholder="3" name="laufzeit" required>
-        <small class="text-danger" th:errors="*{laufzeit}">Muss größer als 0 sein</small>
-       </div>
-       <div class="form-group">
-        <label>Zinssatz (% p.a.)</label>
-        <input class="form-control" type="text" autocomplete="off" name="zinssatz"
-         placeholder="0.5" required>
-        <small class="text-danger" th:errors="*{zinssatz}">Muss positiv sein!</small>
-       </div>
-       <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" name="checked"
-         checked="checked">
-        <label class="form-check-label">Tabelle anzeigen</label>
-       </div>
-       <button type="submit" class="btn btn-dark">Berechnen</button>
-      </form>
-
-     </div>
-    </div>
-   </div>
-
-
-
-   <div class="col-sm" >
-    <div class="card">
-     <div class="card-body">
-      <h5 class="card-title">Ergebnis</h5>
-
-      <p class="card-text" th:object="${zins}">
-       Bei einer Laufzeit von <span th:text="*{laufzeit}">3</span>
-       Jahren bei einem konstanten Zinssatz von <span th:text="*{zinssatz}"
-       >0,5</span> % p.a. und einem
-       Anfangskapital von <span th:text="*{anfangskapital}">5000.00</span>
-       Euro, beträgt das Endkapital <span th:text="*{endkapital}"
-       >5075.38</span> Euro.
-      </p>
-
-      <table id="table" class="table" th:if="${checkbox} == true">
-       <thead>
-        <tr>
-         <th id ="jahr">Jahr</th>
-         <th id="anfangskapital" >Anfangskapital</th>
-         <th id="zinsen">Zinsen</th>
-         <th id="endkapital" >Endkapital</th>
-        </tr>
-       </thead>
-
-       <tbody th:remove="all-but-first" >
-        <tr th:each="zins :  ${zinsRechner}" th:object="${zins}">
-         <td> <span th:text="*{jahr}">1</span></td>
-         <td><span  th:text="*{anfangskapital}">5000.00</span></td>
-         <td><span  th:text="*{zinsen}">25.00</span></td>
-         <td><span th:text="*{endkapital}">5025.00</span></td>
-        </tr>
-        <tr>
-         <td>2</td>
-         <td>5025.00</td>
-         <td>25.12</td>
-         <td>5050.12</td>
-        </tr>
-        <tr>
-         <td>3</td>
-         <td>5050.12</td>
-         <td>25.25</td>
-         <td>5075.38</td>
-        </tr>
-       </tbody>
-      </table>
-     </div>
-    </div>
-   </div>
-  </div>
- </div>
+<body class="container bg-dark">
 <div class="container">
-  <p class="text-muted text-center">&COPY; Parwand 2021</p>
-   </div>
+    <div class="row">
+        <h1 class="text-white container">Zinsrechner</h1>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <div class="card">
+                <div class="card-body">
+
+
+                    <form method="post" th:action="@{/zinsservice}" th:object="${zins}">
+                        <div class="form-group">
+                            <label>Anfangskapital</label>
+                            <input type="text" autocomplete="off" class="form-control" name="anfangskapital"
+                                   placeholder="5000" required>
+                            <small class="text-danger" th:errors="*{anfangskapital}">Muss positiv sein!</small>
+                        </div>
+                        <div class="form-group">
+                            <label>Laufzeit</label>
+                            <input type="text" autocomplete="off"
+                                   class="form-control" placeholder="3" name="laufzeit" required>
+                            <small class="text-danger" th:errors="*{laufzeit}">Muss größer als 0 sein</small>
+                        </div>
+                        <div class="form-group">
+                            <label>Zinssatz (% p.a.)</label>
+                            <input class="form-control" type="text" autocomplete="off" name="zinssatz"
+                                   placeholder="0.5" required>
+                            <small class="text-danger" th:errors="*{zinssatz}">Muss positiv sein!</small>
+                        </div>
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" name="checked"
+                                   checked="checked">
+                            <label class="form-check-label">Tabelle anzeigen</label>
+                        </div>
+                        <button type="submit" class="btn btn-dark">Berechnen</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-sm">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Ergebnis</h5>
+
+                    <p class="card-text" th:object="${zins}">
+                        Bei einer Laufzeit von <span th:text="*{laufzeit}">3</span>
+                        Jahren bei einem konstanten Zinssatz von <span th:text="*{zinssatz}"
+                    >0,5</span> % p.a. und einem
+                        Anfangskapital von <span th:text="*{anfangskapital}">5000.00</span>
+                        Euro, beträgt das Endkapital <span th:text="*{endkapital}"
+                    >5075.38</span> Euro.
+                    </p>
+
+                    <table id="table" class="table" th:if="${checkbox} == true">
+                        <thead>
+                        <tr>
+                            <th id="jahr">Jahr</th>
+                            <th id="anfangskapital">Anfangskapital</th>
+                            <th id="zinsen">Zinsen</th>
+                            <th id="endkapital">Endkapital</th>
+                        </tr>
+                        </thead>
+
+                        <tbody th:remove="all-but-first">
+                        <tr th:each="zins :  ${zinsRechner}" th:object="${zins}">
+                            <td><span th:text="*{jahr}">1</span></td>
+                            <td><span th:text="*{anfangskapital}">5000.00</span></td>
+                            <td><span th:text="*{zinsen}">25.00</span></td>
+                            <td><span th:text="*{endkapital}">5025.00</span></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>5025.00</td>
+                            <td>25.12</td>
+                            <td>5050.12</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>5050.12</td>
+                            <td>25.25</td>
+                            <td>5075.38</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <p class="text-muted text-center">&COPY; Parwand 2021</p>
+</div>
 </body>
 </html>
