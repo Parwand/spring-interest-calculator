@@ -5,6 +5,7 @@
           th:href="@{/css/bootstrap.min.css}">
 </head>
 <body class="container">
+<h1><a th:href="/">Home Page</a></h1>
 <div class="container">
     <div class="row">
         <h1 class="text-white container">Zinsrechner</h1>
@@ -61,7 +62,8 @@
                     >5075.38</span> Euro.
                     </p>
 
-                    <table id="table" class="table" th:if="${checkbox} == true" style="background-color: 	rgb(128,128,128, 0.2)">
+                    <table id="table" class="table" th:if="${checkbox} == true"
+                           style="background-color: 	rgb(128,128,128, 0.2)">
                         <thead>
                         <tr>
                             <th id="jahr">Jahr</th>
