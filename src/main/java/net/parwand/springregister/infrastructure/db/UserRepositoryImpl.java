@@ -1,7 +1,7 @@
 package net.parwand.springregister.infrastructure.db;
 
 import net.parwand.springregister.domain.model.user.User;
-import net.parwand.springregister.applicationservice.UserRepository;
+import net.parwand.springregister.applicationservice.repository.UserRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository

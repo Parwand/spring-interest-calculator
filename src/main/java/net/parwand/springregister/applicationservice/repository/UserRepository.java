@@ -1,4 +1,4 @@
-package net.parwand.springregister.applicationservice;
+package net.parwand.springregister.applicationservice.repository;
 
 import net.parwand.springregister.domain.model.user.User;
 

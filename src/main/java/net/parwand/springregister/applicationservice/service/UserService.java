@@ -1,6 +1,6 @@
 package net.parwand.springregister.applicationservice.service;
 
-import net.parwand.springregister.applicationservice.UserRepository;
+import net.parwand.springregister.applicationservice.repository.UserRepository;
 import net.parwand.springregister.domain.model.user.User;
 import org.springframework.stereotype.Service;
 

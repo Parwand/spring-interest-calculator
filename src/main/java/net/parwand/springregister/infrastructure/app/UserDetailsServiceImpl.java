@@ -3,7 +3,6 @@ package net.parwand.springregister.infrastructure.app;
 import net.parwand.springregister.applicationservice.service.UserService;
 import net.parwand.springregister.domain.Role;
 import net.parwand.springregister.domain.model.user.User;
-import net.parwand.springregister.applicationservice.UserRepository;
 import net.parwand.springregister.applicationservice.exceptions.UserAlreadyExistException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
