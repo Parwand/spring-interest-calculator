@@ -63,4 +63,14 @@ public class ControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(view().name("admin"));
     }
+
+    @Test
+    @DisplayName("should get the view of user")
+    @WithMockUser
+    void test_2() throws Exception {
+        mockMvc.perform(get("/user")
+                        .session(buildSession("ADMIN", "test", 2)))
+                .andExpect(status().isOk())
+                .andExpect(view().name("user"));
+    }
 }
