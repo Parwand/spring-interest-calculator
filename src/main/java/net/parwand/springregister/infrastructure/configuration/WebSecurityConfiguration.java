@@ -49,9 +49,9 @@ public class WebSecurityConfiguration {
                 .antMatchers("/user/register").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .formLogin().loginProcessingUrl("/").permitAll()
+                .formLogin().loginProcessingUrl("/").defaultSuccessUrl("/", true).permitAll()
                 .and()
-                .oauth2Login()
+                .oauth2Login().defaultSuccessUrl("/", true)
                 .and()
                 .logout()
                 .logoutSuccessUrl("/").permitAll();
