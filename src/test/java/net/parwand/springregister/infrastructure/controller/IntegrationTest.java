@@ -41,7 +41,6 @@ public class IntegrationTest {
 
     @Test
     public void test(){
-        System.out.println("Local server Port: " + port);
         String response = template
                 .withBasicAuth("admin", "admin")
                 .getForObject("http://localhost:" + port + "/admin", String.class);
