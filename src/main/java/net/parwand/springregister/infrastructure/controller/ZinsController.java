@@ -1,8 +1,7 @@
-package com.parwand.projects.Zinsrechner.controllers;
+package net.parwand.springregister.infrastructure.controller;
 
 
-import com.parwand.projects.Zinsrechner.entities.Zins;
-import com.parwand.projects.Zinsrechner.model.ZinsService;
+import net.parwand.springregister.domain.zins.Zins;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,8 +18,6 @@ import java.util.List;
 public class ZinsController {
     private int jahr = 0;
     List<Zins> zinsList = new ArrayList<>();
-    @Autowired
-    ZinsService zinsrechner;
     @GetMapping("/zinsservice")
     public String index(){
         return "zinsform";
@@ -28,13 +25,13 @@ public class ZinsController {
 
     @PostMapping("/zinsservice")
     public String index(@ModelAttribute @Valid Zins zins, Errors errors, Model model){
-        zinsrechner.zinsenBerechnen(zins);
+        zins.zinsenBerechnen();
 
         if(errors.hasErrors()){
             return "zinsform";
         }
 
-        zinsList = zinsrechner.getZinsList();
+        zinsList = zins.getZinsList();
 
         model.addAttribute("zinsRechner", zinsList);
         model.addAttribute("zins", zins);
