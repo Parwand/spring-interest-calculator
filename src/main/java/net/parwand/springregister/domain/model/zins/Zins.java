@@ -1,4 +1,4 @@
-package net.parwand.springregister.domain.zins;
+package net.parwand.springregister.domain.model.zins;
 
 
 import javax.validation.constraints.DecimalMin;

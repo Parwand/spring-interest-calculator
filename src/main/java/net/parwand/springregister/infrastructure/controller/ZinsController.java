@@ -1,8 +1,7 @@
 package net.parwand.springregister.infrastructure.controller;
 
 
-import net.parwand.springregister.domain.zins.Zins;
-import org.springframework.beans.factory.annotation.Autowired;
+import net.parwand.springregister.domain.model.zins.Zins;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
