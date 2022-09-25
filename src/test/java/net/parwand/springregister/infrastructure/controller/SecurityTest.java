@@ -64,11 +64,10 @@ class SecurityTest {
 
 
     @Test
-    @DisplayName("CSRF_ATTACK_TOKEN is invalid")
+    @DisplayName("Invalid CSRF_ATTACK_TOKEN is forbidden")
     void test_4() throws Exception {
         mockMvc.perform(post("/user").with(csrf().useInvalidToken()))
-                .andExpect(status().isForbidden())
-                .andExpect(redirectedUrl("http://localhost/login"));
+                .andExpect(status().isForbidden());
     }
 
     @Test
