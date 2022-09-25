@@ -26,11 +26,7 @@ public class WebSecurityConfiguration {
         this.userDetailsServiceImpl = userDetailsServiceImpl;
     }
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) {
-        auth.authenticationProvider(authenticationProvider());
-    }
-
+    @Bean
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
         provider.setPasswordEncoder(passwordEncoder());
@@ -61,7 +57,6 @@ public class WebSecurityConfiguration {
                 .logoutSuccessUrl("/").permitAll();
         return http.build();
     }
-
 
 
 }
