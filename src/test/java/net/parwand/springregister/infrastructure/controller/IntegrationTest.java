@@ -3,10 +3,12 @@ package net.parwand.springregister.infrastructure.controller;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.web.SecurityFilterChain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -17,6 +19,9 @@ public class IntegrationTest {
 
     @Autowired
     private TestRestTemplate template;
+
+    @MockBean
+    SecurityFilterChain filterChain;
 
     @LocalServerPort
     private int port;
@@ -29,9 +34,6 @@ public class IntegrationTest {
     public void givenAuthRequestOnPrivateService_shouldSucceedWith200() throws Exception {
         ResponseEntity<String> result = template.withBasicAuth("foo", "admin")
                 .getForEntity("/admin", String.class);
-        System.out.println("Status of Http Response : "+ result.getStatusCode());
-        System.out.println("Status value of Http Response (html site): "+ result.getStatusCodeValue());
-        System.out.println("Body of Http Response (html site): "+ result.getBody());
         assertEquals(HttpStatus.OK, result.getStatusCode());
         assertThat(result.getStatusCode()).isEqualTo(HttpStatus.OK);
 
