@@ -49,18 +49,18 @@ public class Zins {
     public void zinsenBerechnen() {
         double zinsen = 0;
         zinsList.clear();
-        jahr= 0;
-        for(int i=1; i<=laufzeit; i++){
+        jahr = 0;
+        for (int i = 1; i <= laufzeit; i++) {
             jahr++;
 
-            zinsen = anfangskapital * (zinssatz/100);
+            zinsen = anfangskapital * (zinssatz / 100);
             endkapital = (anfangskapital + zinsen);
 
-            endkapital = (double)Math.round(endkapital*100)/100;
-            anfangskapital = (double)Math.round(anfangskapital*100)/100;
-            zinsen = (double) Math.round(zinsen*100)/100;
+            endkapital = (double) Math.round(endkapital * 100) / 100;
+            anfangskapital = (double) Math.round(anfangskapital * 100) / 100;
+            zinsen = (double) Math.round(zinsen * 100) / 100;
 
-            zinsList.add(new Zins(anfangskapital, laufzeit, zinssatz, jahr, zinsen, endkapital, checked, zinsList ));
+            zinsList.add(new Zins(anfangskapital, laufzeit, zinssatz, jahr, zinsen, endkapital, checked, zinsList));
             anfangskapital += zinsen;
         }
     }
