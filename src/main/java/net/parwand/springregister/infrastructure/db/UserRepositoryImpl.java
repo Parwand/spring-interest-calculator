@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class UserRepositoryImpl implements UserRepository {
 
-    private UserDao userDao;
+    private final UserDao userDao;
 
     public UserRepositoryImpl(UserDao userDao) {
         this.userDao = userDao;
