@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="../static/css/tic-tac-toe.css" th:href="@{/css/tic-tac-toe.css}">
+</head>
+<body>
+    <div class="game">
+        <div class="head"><span>TIC TAC TOE </span>GAME</div>
+
+        <div class="square" id="square1" onclick="game(this.id)"></div>
+        <div class="square" id="square2" onclick="game(this.id)"></div>
+        <div class="square" id="square3" onclick="game(this.id)"></div>
+
+        <div class="square" id="square4" onclick="game(this.id)"></div>
+        <div class="square" id="square5" onclick="game(this.id)"></div>
+        <div class="square" id="square6" onclick="game(this.id)"></div>
+
+        <div class="square" id="square7" onclick="game(this.id)"></div>
+        <div class="square" id="square8" onclick="game(this.id)"></div>
+        <div class="square" id="square9" onclick="game(this.id)"></div>
+
+        <div class="newGame"><button onclick="newGame()">NEW GAME</button></div>
+        <div class="copyright">The Game is developed by <a href="https://www.parwand.net" target="plank">&copy Parwand Alsino</a></div>
+    </div>
+
+    <script th:src="@{/js/tic-tac-toe.js}" src="../static/js/tic-tac-toe.js" th:inline="javascript"></script>
+</body>
+</html>

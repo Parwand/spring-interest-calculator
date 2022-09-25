@@ -1,0 +1,18 @@
+package net.parwand.springregister.infrastructure.controller;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+import java.nio.file.AccessDeniedException;
+
+@ControllerAdvice
+public class WebControllerAdvice {
+
+    @ResponseStatus(value = HttpStatus.UNAUTHORIZED , reason = "Forbidden")
+    @ExceptionHandler(AccessDeniedException.class)
+    public void userExists() {
+
+    }
+}

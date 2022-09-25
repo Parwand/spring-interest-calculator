@@ -1,0 +1,39 @@
+ul.navigation {
+    background-color: #495057;
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+ul.navigation li {
+    margin-left: 0;
+    background-color: coral;
+    padding-left: 20px;
+    padding-right: 20px;
+    float: left;
+}
+
+ul.navigation li a {
+    display: block;
+    text-decoration: none;
+}
+ul.navigation li:hover{
+    background-color: lightslategrey;
+    color: white;
+}
+ul.navigation li a:hover {
+    background-color: gray;
+    color: white;
+    text-decoration: none;
+}
+
+
+
+#logout {
+    margin-bottom: 4px;
+}
+
+.button {
+    background-color: coral;
+    margin-bottom: 2px;
+}

@@ -1,0 +1,35 @@
+.game {
+    width: 387px;
+    height: 400px;
+    margin: auto;
+}
+
+.head {
+    background-color: coral;
+    text-align: center;
+    font-size: 30pt;
+}
+
+span{
+    color: rgb(34, 238, 126);
+}
+
+.square {
+    background-color: coral;
+    height: 125px;
+    width: 125px;
+    float: left;
+    margin: 2px;
+    font-size: 80pt;
+    text-align: center;
+}
+
+.square:hover {
+    background-color: rgb(34, 238, 126);
+    cursor: pointer;
+}
+
+
+button {
+    background-color: coral;
+}   

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Page</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous"/>
+    <link type="text/css" rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}">
+</head>
+<body class="container">
+    <h1>The students site</h1>
+    <p>Hello <span th:text="${principal}">principal</span></p>
+    <ul>
+        <li><a href="/">Home Page</a></li>
+        <li>You welcome to DOM</li>
+        <li class="form-control">
+            <input type="text" id="x-sum"> + <input type="text" id="y-sum"> <button onclick="sum()">result</button> = <span id="sum-result"></span>
+        </li>
+        <li class="form-control">
+            <input type="text" id="x-mul"> * <input type="text" id="y-mul"> <button onclick="multiply()">result</button> = <span id="mul-result"></span>
+        </li>
+        <li class="form-control">
+            <input type="text" id="x-divide"> / <input type="text" id="y-divide"> <button onclick="divide()">result</button> = <span id="divide-result"></span>
+        </li>
+    </ul>
+
+    <div>
+        <div th:if="${principal}">
+            <form th:action="@{/logout}" method="post">
+                <label for="logout"></label>
+                <input type="submit" class="btn btn-sm btn-outline-primary" name="logout" value="Logout" id="logout">
+            </form>
+        </div>
+        <a href="/login" th:unless="${principal}"><button class="btn btn-sm btn-outline-primary">login</button></a>
+        <a href="/oauth2/authorization/github" th:unless="${principal}"><button class="btn btn-sm btn-outline-primary">login with gitHub</button></a>
+    </div>
+    <p class="text-center"><a href="https://www.parwand.net" target="_blank">&copy;Parwand Alsino</a></p>
+    <script th:src="@{/js/calculator.js}" src="../static/js/calculator.js" th:inline="javascript"></script>
+</body>
+</html>

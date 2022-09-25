@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous"/>
+    <link type="text/css" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+    <link type="text/css" rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}">
+</head>
+<body class="container">
+    <h1>Home Page</h1>
+    <ul class="navigation">
+        <li><a href="/admin">Admin</a></li>
+        <li><a href="/student">Student</a></li>
+        <li><a href="/user">User</a></li>
+    </ul>
+    <br>
+    <div><a href="/user/registration">Register as User</a></div>
+    <div><a href="/student/registration">Register as Student</a></div>
+    <div>
+        <div th:if="${principal}">
+            <form th:action="@{/logout}" method="post">
+                <label for="logout"></label>
+                <input type="submit" class="btn btn-sm btn-outline-primary" name="logout" value="Logout" id="logout">
+            </form>
+        </div>
+        <a href="/login" th:unless="${principal}"><button class="btn btn-sm btn-outline-primary">login</button></a>
+        <a href="/oauth2/authorization/github" th:unless="${principal}"><button class="btn btn-sm btn-outline-primary">login with gitHub</button></a>
+    </div>
+    <p class="text-center"><a href="https://www.parwand.net" target="_blank">&copy;Parwand Alsino</a></p>
+</body>
+</html>
