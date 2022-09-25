@@ -74,7 +74,7 @@ class SecurityTest {
     @Test
     @DisplayName("with valid csrf_token get redirection to login")
     void test_5() throws Exception {
-        mockMvc.perform(post("/").with(csrf())).andExpect(status().is3xxRedirection());
+        mockMvc.perform(post("/").with(csrf())).andExpect(status().is3xxRedirection()).andExpect(redirectedUrl("http://localhost/login"));
     }
 
     /**
