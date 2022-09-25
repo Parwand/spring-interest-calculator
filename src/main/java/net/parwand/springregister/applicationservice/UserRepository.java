@@ -1,6 +1,6 @@
 package net.parwand.springregister.applicationservice;
 
-import net.parwand.springregister.domain.User;
+import net.parwand.springregister.domain.model.user.User;
 
 public interface UserRepository {
 

@@ -1,6 +1,6 @@
 package net.parwand.springregister.infrastructure.app;
 
-import net.parwand.springregister.domain.User;
+import net.parwand.springregister.domain.model.user.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

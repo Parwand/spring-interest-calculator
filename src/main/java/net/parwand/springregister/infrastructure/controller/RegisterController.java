@@ -1,7 +1,7 @@
 package net.parwand.springregister.infrastructure.controller;
 
 import net.parwand.springregister.applicationservice.exceptions.UserAlreadyExistException;
-import net.parwand.springregister.domain.User;
+import net.parwand.springregister.domain.model.user.User;
 import net.parwand.springregister.infrastructure.app.UserDetailsServiceImpl;
 import net.parwand.springregister.infrastructure.db.UserDto;
 import org.springframework.stereotype.Controller;
