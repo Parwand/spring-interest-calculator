@@ -1,5 +1,6 @@
 package net.parwand.springregister.infrastructure.app;
 
+import net.parwand.springregister.applicationservice.service.UserService;
 import net.parwand.springregister.domain.Role;
 import net.parwand.springregister.domain.model.user.User;
 import net.parwand.springregister.applicationservice.UserRepository;
@@ -14,16 +15,16 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-    UserRepository userRepository;
+    UserService userService;
     PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-    public UserDetailsServiceImpl(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public UserDetailsServiceImpl(UserService userService) {
+        this.userService = userService;
     }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findUserByUsername(username);
+        User user = userService.getUser(username);
         if (user == null) {
             throw new UsernameNotFoundException("User Not Found");
         }
@@ -38,7 +39,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         user.setRole(Role.ROLE_USER);
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
-        userRepository.save(user);
+        userService.save(user);
     }
 
     public void registerStudent(User user) throws UserAlreadyExistException{
@@ -49,10 +50,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         user.setRole(Role.ROLE_STUDENT);
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
-        userRepository.save(user);
+        userService.save(user);
     }
 
     public boolean existsUser(User user){
-        return  userRepository.findUserByUsername(user.getUsername()) != null;
+        return  userService.getUser(user.getUsername()) != null;
     }
 }
