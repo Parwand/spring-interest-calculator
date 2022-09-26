@@ -50,6 +50,7 @@ public class Zins {
         this.zinsen = 0;
         this.zinsList.clear();
         this.jahr = 0;
+        this.endkapital = this.anfangskapital;
         double anfangskapitalExchange = this.anfangskapital;
         for (int i = 1; i <= laufzeit; i++) {
             this.jahr++;
