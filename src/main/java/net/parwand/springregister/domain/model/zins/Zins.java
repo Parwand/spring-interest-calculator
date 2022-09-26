@@ -47,7 +47,7 @@ public class Zins {
     }
 
     public void zinsenBerechnen() {
-        double zinsen = 0;
+        this.zinsen = 0;
         this.zinsList.clear();
         this.jahr = 0;
         double anfangskapitalExchange = this.anfangskapital;
