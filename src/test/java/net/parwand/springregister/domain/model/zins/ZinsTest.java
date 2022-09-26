@@ -73,8 +73,24 @@ class ZinsTest {
     }
 
     @Test
-    @DisplayName("Mit Anfangskapital 1000 €, 100 Jahren Laufzeit  und 0 % Zinssatz soll Endkapital auch 0€ betragen ")
+    @DisplayName("Mit Anfangskapital 1000 €, 100 Jahren Laufzeit  und 0 % Zinssatz soll Endkapital auch beim 1000€ bleiben ")
     void test_5() {
+        // Arrange
+        Zins zins = new Zins();
+        zins.setAnfangskapital(1000);
+        zins.setLaufzeit(100);
+        zins.setZinssatz(0);
+        // Act
+        zins.zinsenBerechnen();
+        double result = zins.getEndkapital();
+        // Assert
+        assertThat(result).isEqualTo(1000.0);
+    }
+
+
+    @Test
+    @DisplayName("Mit Anfangskapital 1000 €, 0 Jahren Laufzeit  und 100 % Zinssatz soll Endkapital auch 0€ betragen ")
+    void test_6() {
         // Arrange
         Zins zins = new Zins();
         zins.setAnfangskapital(0);
