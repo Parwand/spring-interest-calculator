@@ -1,4 +1,4 @@
-package net.parwand.springregister;
+package net.parwand.springregister.infrastructure.controller;
 
 import net.parwand.springregister.infrastructure.app.UserDetailsServiceImpl;
 import org.junit.jupiter.api.DisplayName;
