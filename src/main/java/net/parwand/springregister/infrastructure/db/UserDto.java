@@ -1,7 +1,7 @@
 package net.parwand.springregister.infrastructure.db;
 
 
-import net.parwand.springregister.domain.Role;
+import net.parwand.springregister.infrastructure.util.Role;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 

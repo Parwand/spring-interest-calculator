@@ -1,4 +1,4 @@
-package net.parwand.springregister.domain;
+package net.parwand.springregister.infrastructure.util;
 
 public enum Role {
     ROLE_ADMIN,

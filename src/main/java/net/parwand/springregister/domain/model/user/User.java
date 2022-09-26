@@ -1,6 +1,6 @@
 package net.parwand.springregister.domain.model.user;
 
-import net.parwand.springregister.domain.Role;
+import net.parwand.springregister.infrastructure.util.Role;
 
 public class User {
     private Long id;
