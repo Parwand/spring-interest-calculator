@@ -1,3 +1,3 @@
 #### Interest Calculator 
 
-Junior software developer: [Parwand Alsino](https://www.parwand.net)
+Software engineer: [Parwand Alsino](https://www.parwand.net)
